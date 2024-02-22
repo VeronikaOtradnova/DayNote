@@ -1,0 +1,72 @@
+.cell {
+  text-align: center;
+}
+
+.wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 20px; 
+  padding-top: 0;
+  background-color: #fff;
+}
+
+.heading {
+  margin-bottom: 20px;
+  font-size: 3rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.table {
+  width: 100%;
+  margin-top: 15px;
+  font-size: 2.5rem;
+}
+
+.headCell {
+  color: #86848F;
+  font-weight: 300;
+}
+
+.cell {
+  padding: 10px 0;
+  color: #3B3D49;
+}
+
+@media (min-width: 500px) {
+  .wrapper {
+    padding: 65px 30px; 
+    padding-top: 0;
+  }
+
+  .heading {
+    margin-bottom: 50px;
+    font-size: 3.4rem;
+  }
+
+  .table {
+    width: 100%;
+    margin-top: 15px;
+    font-size: 3rem;
+  }
+
+  .cell {
+    padding: 10px 5px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .wrapper {
+    position: relative;
+    border-radius: 13px;
+    width: 600px;
+    padding: 20px; 
+    background-color: #fff;
+  }
+}

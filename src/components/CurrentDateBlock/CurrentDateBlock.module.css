@@ -1,0 +1,85 @@
+.wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.date {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+  height: 45px;
+  padding: 0 10px;
+  border-radius: 13px;
+  background-color: #fff;
+  font-size: 2rem;
+  color: #000;
+}
+.date:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 8px 0px #cccccc;
+}
+
+.calendarIcon {
+  width: 22px;
+  height: 24px;
+  background-color: transparent;
+  background-image: url('/src/icons/calendar.svg');
+  background-size: 100% 100%;
+}
+
+.dateText {
+  margin: auto;
+}
+
+.btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 13px;
+  background-color: #fff;
+  background-image: url('/src/icons/chevron.svg');
+  background-size: 18px 18px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+}
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 8px 0px #cccccc;
+}
+
+.prevDateBtn {
+  transform: rotate(-90deg);
+}
+
+.nextDateBtn {
+  transform: rotate(90deg);
+}
+
+@media (min-width: 450px) {
+  .date {
+    width: auto;
+    height: 65px;
+    font-size: 2.4rem;
+  }
+
+  .calendarIcon {
+    width: 35px;
+    height: 37px;
+  }
+
+  .dateText {
+    margin: 0 55px;
+  } 
+
+  .btn {
+    width: 65px;
+    height: 65px;
+  }
+}

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CURRENT-DATE-BLOCK TESTING Render current date 1`] = `
+<div
+  class="wrapper"
+  data-testid="date-block"
+>
+  <button
+    class="btn prevDateBtn"
+    data-testid="prev-btn"
+  />
+  <div
+    class="date"
+    data-testid="date-elem"
+  >
+    <div
+      class="calendarIcon"
+    />
+    <div
+      class="dateText"
+    >
+      1 января
+    </div>
+  </div>
+  <button
+    class="btn nextDateBtn"
+    data-testid="next-btn"
+  />
+</div>
+`;

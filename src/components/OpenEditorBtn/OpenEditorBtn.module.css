@@ -1,0 +1,15 @@
+.btn {
+  align-self: flex-end;
+  padding: 5px 10px;
+  background-color: #c4c2c9;
+  font-size: 2rem;
+  font-weight: 300;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+.btn:hover {
+  background-color: #b1aeb7;
+  cursor: pointer;
+}

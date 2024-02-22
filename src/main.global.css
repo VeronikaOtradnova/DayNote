@@ -1,0 +1,55 @@
+:root {
+  --green: #19C152;
+  --yellow: #FFC700;
+  --gray: #919191;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.app-container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  background-color: #F2F3F7;
+}
+
+.green {
+  color: var(--green);
+}
+.yellow {
+  color: var(--yellow);
+}
+.gray {
+  color: var(--gray);
+}
+
+.disabled-btn {
+  opacity: 0.5;
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+}

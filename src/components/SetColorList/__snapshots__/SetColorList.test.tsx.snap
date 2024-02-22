@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TEST SET-COLORS-LIST List should render with all colors 1`] = `
+<ul
+  class="list"
+  data-testid="set-color-list"
+>
+  <li
+    class="item green"
+    data-testid="set-color-item"
+  >
+    green
+  </li>
+  <li
+    class="item yellow"
+    data-testid="set-color-item"
+  >
+    yellow
+  </li>
+  <li
+    class="item gray"
+    data-testid="set-color-item"
+  >
+    gray
+  </li>
+</ul>
+`;

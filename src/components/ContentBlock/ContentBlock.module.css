@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 40px;
+  border-radius: 13px;
+  background-color: #fff;
+}
+
+.colorText {
+  font-size: 4rem;
+}
+.colorText:not(:last-child) {
+  margin-bottom: 35px;
+}
