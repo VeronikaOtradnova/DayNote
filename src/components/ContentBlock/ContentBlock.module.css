@@ -1,8 +1,10 @@
 .wrapper {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-start;
-  align-items: center;
+  align-items: stretch;
+  min-height: 80vh;
   width: 100%;
   padding: 40px;
   border-radius: 13px;
@@ -14,4 +16,12 @@
 }
 .colorText:not(:last-child) {
   margin-bottom: 35px;
+}
+
+@media (min-width: 1000px) {
+  .wrapper {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
 }

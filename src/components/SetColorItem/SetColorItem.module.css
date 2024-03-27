@@ -1,9 +1,0 @@
-.item {
-  font-size: 4rem;
-}
-.item:hover {
-  cursor: pointer;
-}
-.item:not(:last-child) {
-  margin-bottom: 35px;
-}

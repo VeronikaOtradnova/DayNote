@@ -3,6 +3,7 @@ import { TRootState } from "../../store/redusers";
 import { renderWithRedux } from "../../tests/helpers/renderWithRedux";
 import {SetCurrentDateBtn} from './SetCurrentDateBtn';
 import { screen } from "@testing-library/react";
+import { act } from "react-dom/test-utils";
 
 const testInitialState: TRootState = {
   day: {
@@ -27,7 +28,10 @@ describe('TEST SET-DATE-BTN', () => {
     const {store} = renderWithRedux(<SetCurrentDateBtn />, { initialState: testInitialState });
 
     const btn = screen.getByTestId('set-date-btn');
-    await user.click(btn);
+
+    await act(async () => {
+      await user.click(btn);
+    })
 
     const state:TRootState = store.getState();
     expect(state.day.currentDay).toBe(state.calendar.calendarDate);

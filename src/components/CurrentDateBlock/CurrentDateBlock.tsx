@@ -1,12 +1,14 @@
 import { getDayMs } from '../../helpers/getDayMs';
 import { getTodayMs } from '../../helpers/getTodayMs';
 import { useActions } from '../../hooks/useActions';
+import { useCurrentDayData } from '../../hooks/useCurrentDayData';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import styles from './CurrentDateBlock.module.css';
 
 export const CurrentDateBlock = () => {
   const { currentDay } = useTypedSelector(store => store.day);
   const {setCurrentDay, openCalendar} = useActions();
+  const {color} = useCurrentDayData();
 
   if (!currentDay) return null;
 
@@ -62,17 +64,29 @@ export const CurrentDateBlock = () => {
 
   return (
     <div className={styles.wrapper} data-testid="date-block">
-      <button onClick={prevBtnHandler} className={`${styles.btn} ${styles.prevDateBtn}`} data-testid="prev-btn" />
+      <button 
+        onClick={prevBtnHandler} 
+        className={`${styles.btn} ${styles.prevDateBtn} ${color ? styles[color] : styles.noColor}`} 
+        data-testid="prev-btn" 
+      />
 
-      <div className={styles.date} onClick={() => openCalendar()} data-testid="date-elem">
+      <div className={`${styles.date} ${color ? styles[color] : styles.noColor}`} onClick={() => openCalendar()} data-testid="date-elem">
         <div className={styles.calendarIcon} />
         <div className={styles.dateText}>{`${day} ${month}`}</div>
       </div>
       {
         currentDay === getTodayMs() ?
-        <button disabled className={`${styles.btn} ${styles.nextDateBtn} disabled-btn`} data-testid="disabled-next-btn" /> 
+        <button 
+          disabled 
+          className={`${styles.btn} ${styles.nextDateBtn} ${color ? styles[color] : styles.noColor} disabled-btn`} 
+          data-testid="disabled-next-btn" 
+        /> 
         :
-        <button onClick={nextBtnHandler} className={`${styles.btn} ${styles.nextDateBtn}`} data-testid="next-btn" />
+        <button 
+          onClick={nextBtnHandler} 
+          className={`${styles.btn} ${styles.nextDateBtn} ${color ? styles[color] : styles.noColor}`} 
+          data-testid="next-btn" 
+        />
       }
     </div>
   )

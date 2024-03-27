@@ -1,7 +1,15 @@
 :root {
-  --green: #19C152;
+  --green: #718e7a;
+  --light-green: #c6d2ca;
   --yellow: #FFC700;
+  --light-yellow: #f3e2a5;
   --gray: #919191;
+  --dark-gray: #737373;
+  --light-gray: #c4c2c9;
+  --extralight-gray: #e5e4e7;
+  --text-color: #3b3d49;
+  --red: #b30000;
+  --red-bg: rgba(179, 0, 0, 0.1);
 }
 
 * {
@@ -26,16 +34,6 @@ body {
   justify-content: flex-start;
   align-items: stretch;
   background-color: #F2F3F7;
-}
-
-.green {
-  color: var(--green);
-}
-.yellow {
-  color: var(--yellow);
-}
-.gray {
-  color: var(--gray);
 }
 
 .disabled-btn {

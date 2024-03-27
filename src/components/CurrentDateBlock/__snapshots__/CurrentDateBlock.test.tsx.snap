@@ -6,11 +6,11 @@ exports[`CURRENT-DATE-BLOCK TESTING Render current date 1`] = `
   data-testid="date-block"
 >
   <button
-    class="btn prevDateBtn"
+    class="btn prevDateBtn gray"
     data-testid="prev-btn"
   />
   <div
-    class="date"
+    class="date gray"
     data-testid="date-elem"
   >
     <div
@@ -23,7 +23,7 @@ exports[`CURRENT-DATE-BLOCK TESTING Render current date 1`] = `
     </div>
   </div>
   <button
-    class="btn nextDateBtn"
+    class="btn nextDateBtn gray"
     data-testid="next-btn"
   />
 </div>

@@ -1,6 +1,6 @@
-import { useActions } from '../../hooks/useActions';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
-import { TColor, colors } from '../../types/color';
+import { useActions } from '../../../hooks/useActions';
+import { useTypedSelector } from '../../../hooks/useTypedSelector';
+import { TColor, colors } from '../../../types/color';
 import styles from './SetColorItem.module.css';
 
 interface IProps {
@@ -11,7 +11,7 @@ interface IProps {
 export const SetColorItem = ({color, setEditorOpen}: IProps) => {
   const {currentDay, days} = useTypedSelector(store => store.day);
   const {addDay, editDay} = useActions();
-  let className = `${styles.item} ${color}`;
+  let className = `${styles.item} ${styles[color]}`;
 
   if (!currentDay) return null;
   
@@ -24,12 +24,13 @@ export const SetColorItem = ({color, setEditorOpen}: IProps) => {
     } else {
       addDay({
         date: currentDay,
-        color: color
+        color: color,
+        tasks: []
       })
     }
   }
 
   return (
-    <li onClick={handleClick} className={className} data-testid="set-color-item">{color}</li>
+    <li onClick={handleClick} className={className} data-testid="set-color-item" />
   )
 }

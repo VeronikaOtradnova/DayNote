@@ -1,0 +1,20 @@
+.item {
+  height: 30px;
+  width: 30px;
+  margin-bottom: 35px;
+  border-radius: 50%;
+  border: 1px solid var(--gray);
+}
+.item:hover {
+  cursor: pointer;
+}
+
+.green {
+  background-color: var(--green);
+}
+.yellow {
+  background-color: var(--yellow);
+}
+.gray {
+  background-color: var(--gray);
+}

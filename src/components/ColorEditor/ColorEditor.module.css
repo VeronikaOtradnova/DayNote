@@ -1,0 +1,9 @@
+.editor {
+  position: absolute;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  bottom: 40px;
+  right: 40px;
+}

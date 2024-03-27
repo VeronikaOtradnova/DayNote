@@ -1,6 +1,5 @@
 import { getTodayMs } from "../../helpers/getTodayMs";
-import { colors } from "../../types/color";
-import { IDay, IDayState, dayActionTypes } from "../../types/day";
+import { IDayState, dayActionTypes } from "../../types/day";
 
 
 const initialState: IDayState = {

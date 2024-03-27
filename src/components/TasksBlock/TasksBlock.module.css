@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+}
+
+.tasksList {
+  list-style-type: none;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+@media (min-width: 1000px) {
+  .wrapper {
+    width: 40%;
+  }
+}

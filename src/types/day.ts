@@ -1,8 +1,10 @@
 import { TColor } from "./color";
+import { ITask } from "./task";
 
 export interface IDay {
   date: number,
   color: TColor,
+  tasks: ITask[],
 }
 
 export enum dayActionTypes {

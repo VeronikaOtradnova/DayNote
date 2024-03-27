@@ -1,30 +1,16 @@
 import styles from './ContentBlock.module.css';
-import { SetColorList } from '../SetColorList/SetColorList';
+import { SetColorList } from '../ColorEditor/SetColorList/SetColorList';
 import { useCurrentDayData } from '../../hooks/useCurrentDayData';
 import { useState } from 'react';
-import { OpenEditorBtn } from '../OpenEditorBtn/OpenEditorBtn';
+import { OpenColorEditorBtn } from '../ColorEditor/OpenColorEditorBtn/OpenEditorBtn';
+import { TasksBlock } from '../TasksBlock/TasksBlock';
+import { ColorEditor } from '../ColorEditor/ColorEditor';
 
 export const ContentBlock = () => {
-  const [isEditorOpen, setEditorOpen] = useState(false);
-  const currentDayData = useCurrentDayData();
-
   return (
     <div className={styles.wrapper}>
-      {
-        currentDayData ?
-          <>
-            {
-              isEditorOpen ?
-              <SetColorList setEditorOpen={setEditorOpen} /> 
-              :
-              <p className={`${styles.colorText} ${currentDayData.color}`} data-testid="current-color">{currentDayData.color}</p>
-            }
-
-            <OpenEditorBtn isEditorOpen={isEditorOpen} setEditorOpen={setEditorOpen} />
-          </>
-          :
-          <SetColorList />
-      }
+      <TasksBlock />
+      <ColorEditor />
     </div>
   )
 }

@@ -4,10 +4,6 @@ import { TRootState, rootReducer } from "../../store/redusers";
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 
-interface IInitState {
-  day: IDayState
-}
-
 const testInitialState: TRootState = {
   day: {
     currentDay: +(new Date(2020, 0, 1)),

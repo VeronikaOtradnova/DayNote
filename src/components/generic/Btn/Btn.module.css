@@ -1,0 +1,29 @@
+.btn {
+  padding: 5px 10px;
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #fff;
+  border: none;
+  outline: none;
+}
+.btn:hover {
+  background-color: #b1aeb7;
+  cursor: pointer;
+}
+
+.lightGray {
+  background-color: var(--light-gray);
+}
+
+.angleNormal {
+  border-radius: none;
+}
+.angleRounded5 {
+  border-radius: 5px;
+}
+
+@media (min-width: 1000px) {
+  .btn {
+    font-size: 2rem;
+  }
+}

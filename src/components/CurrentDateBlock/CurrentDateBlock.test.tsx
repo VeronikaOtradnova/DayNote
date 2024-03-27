@@ -5,13 +5,15 @@ import { CurrentDateBlock } from './CurrentDateBlock'
 import { TRootState } from "../../store/redusers"
 import userEvent from "@testing-library/user-event"
 import { getTodayMs } from "../../helpers/getTodayMs"
+import { act } from "react-dom/test-utils"
 
 const testInitialState: TRootState = {
   day: {
     currentDay: +(new Date(2020, 0, 1)),
     days: [{
       date: +(new Date(2020, 0, 1)),
-      color: colors.gray
+      color: colors.gray,
+      tasks: []
     }]
   },
   calendar: {
@@ -25,7 +27,8 @@ const testInitialStateToday: TRootState = {
     currentDay: getTodayMs(),
     days: [{
       date: +(new Date(2020, 0, 1)),
-      color: colors.gray
+      color: colors.gray,
+      tasks: []
     }]
   },
   calendar: {
@@ -52,7 +55,10 @@ describe('CURRENT-DATE-BLOCK TESTING', () => {
     const prevBtn = screen.getByTestId<HTMLButtonElement>('prev-btn');
     expect(prevBtn).toBeInTheDocument();
 
-    await user.click(prevBtn);
+    await act(async () => {
+      await user.click(prevBtn);
+    })
+
     expect(screen.getByTestId<HTMLDivElement>('date-elem')).toHaveTextContent('31 декабря');
   });
 
@@ -63,7 +69,10 @@ describe('CURRENT-DATE-BLOCK TESTING', () => {
     const nextBtn = screen.getByTestId<HTMLButtonElement>('next-btn');
     expect(nextBtn).toBeInTheDocument();
 
-    await user.click(nextBtn);
+    await act(async () => {
+      await user.click(nextBtn);
+    })
+    
     expect(screen.getByTestId<HTMLDivElement>('date-elem')).toHaveTextContent('2 января');
   });
 
@@ -76,7 +85,10 @@ describe('CURRENT-DATE-BLOCK TESTING', () => {
     const disabledBtn = screen.getByTestId<HTMLButtonElement>('disabled-next-btn');
     expect(disabledBtn).toBeInTheDocument();
 
-    await user.click(disabledBtn);
+    await act(async () => {
+      await user.click(disabledBtn);
+    })
+    
     const stateAfterClick:TRootState = store.getState();
     expect(firstState.day.currentDay).toBe(stateAfterClick.day.currentDay); // после клика дата в стейте не изменилась
   });
@@ -86,7 +98,10 @@ describe('CURRENT-DATE-BLOCK TESTING', () => {
     const {store} = renderWithRedux(<CurrentDateBlock />, { initialState: testInitialState });
 
     const dateElem = screen.getByTestId('date-elem');
-    await user.click(dateElem);
+    
+    await act(async () => {
+      await user.click(dateElem);
+    })
 
     const state:TRootState = store.getState();
     expect(state.calendar.isCalendarOpen).toBe(true);

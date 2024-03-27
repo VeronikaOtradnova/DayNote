@@ -5,6 +5,7 @@ import { DayInCalendar } from "./DayInCalendar";
 import userEvent from "@testing-library/user-event";
 import { getTodayMs } from "../../helpers/getTodayMs";
 import { getDayMs } from "../../helpers/getDayMs";
+import { act } from "react-dom/test-utils";
 
 const testInitialState: TRootState = {
   day: {
@@ -47,7 +48,10 @@ describe('TEST DAY IN CALENDAR', () => {
     expect(screen.queryByTestId('day-in-calendar')).not.toBeInTheDocument();
     const dayElem = screen.getByTestId('day-in-calendar_future');
     expect(dayElem).toBeInTheDocument();
-    await user.click(dayElem);
+
+    await act(async () => {
+      await user.click(dayElem);
+    })
 
     const state:TRootState = store.getState();
     expect(state.calendar.calendarDate).toBe(stateBeforeClick.calendar.calendarDate);

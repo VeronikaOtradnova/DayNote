@@ -1,4 +1,4 @@
-import { colors } from '../../types/color';
+import { colors } from '../../../types/color';
 import { SetColorItem } from '../SetColorItem/SetColorItem';
 import styles from './SetColorList.module.css';
 
