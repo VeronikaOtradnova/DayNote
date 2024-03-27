@@ -12,23 +12,18 @@ const stateWithCurrentColor: TRootState = {
     days: [{
       date: +(new Date(2020, 0, 1)),
       color: colors.green,
-      tasks: []
     }],
   },
   calendar: {
     isCalendarOpen: false,
     calendarDate: +(new Date(2020, 0, 1)),
+  },
+  task: {
+    tasks: []
   }
 }
 
 describe('TEST CONTENT-BLOCK', () => {
-  // test('Should render current-color-text when currentDay has a color', () => {
-  //   renderWithRedux(<ContentBlock />, {initialState: stateWithCurrentColor});
-  //   expect(screen.getByTestId('current-color')).toBeInTheDocument();
-  //   expect(screen.getByTestId('open-editor-btn')).toBeInTheDocument();
-  //   expect(screen.queryByTestId('set-color-list')).not.toBeInTheDocument();
-  // })
-
   test('Open-editor-btn shouls open and close set-color-list', async () => {
     const user = userEvent.setup();
     renderWithRedux(<ContentBlock />, {initialState: stateWithCurrentColor});

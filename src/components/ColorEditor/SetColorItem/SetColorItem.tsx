@@ -25,7 +25,6 @@ export const SetColorItem = ({color, setEditorOpen}: IProps) => {
       addDay({
         date: currentDay,
         color: color,
-        tasks: []
       })
     }
   }

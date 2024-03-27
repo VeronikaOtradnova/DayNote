@@ -12,7 +12,7 @@ interface IProps {
 export function TaskItem({ task }: IProps) {
   const [inputValue, setInputValue] = useState(task.done);
   const { currentDay, days } = useTypedSelector(store => store.day);
-  const { editDay } = useActions();
+  const { editTask } = useActions();
 
   const handleChange = () => {
     setInputValue(!inputValue);
@@ -22,7 +22,7 @@ export function TaskItem({ task }: IProps) {
     const day = days.find(d => d.date === currentDay);
     if (!day) return;
 
-    editDay({ ...day, tasks: [...day.tasks.filter(t => t.id !== task.id), { ...task, done: inputValue }] });
+    editTask({...task, done: inputValue})
   }, [inputValue]);
 
   return (

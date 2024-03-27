@@ -14,6 +14,9 @@ const newDayInitialState: TRootState = {
   calendar: {
     isCalendarOpen: false,
     calendarDate: +(new Date(2020, 0, 1)),
+  },
+  task: {
+    tasks: []
   }
 }
 
@@ -23,17 +26,22 @@ const existingDayInitialState: TRootState = {
     days: [{
       date: +(new Date(2020, 0, 1)),
       color: colors.gray,
-      tasks: [{
-        created: +(new Date(2020, 0, 1)),
-        done: false,
-        id: 'testid0',
-        text: 'test task 0'
-      }]
     }]
   },
   calendar: {
     isCalendarOpen: false,
     calendarDate: +(new Date(2020, 0, 1)),
+  },
+  task: {
+    tasks: [
+      {
+        created: +(new Date(2020, 0, 1)),
+        done: false,
+        id: 'testid0',
+        text: 'test task 0',
+        day: +(new Date(2020, 0, 1))
+      }
+    ]
   }
 }
 
@@ -63,7 +71,7 @@ describe('NEW-TASK-FORM TESTING', () => {
     const state: TRootState = store.getState();
     const newDayInDays = state.day.days.find(day => day.date === state.day.currentDay)
     expect(!!newDayInDays).toBe(true);
-    expect(newDayInDays?.tasks[0].text).toBe('test-task');
+    expect(state.task.tasks[0].text).toBe('test-task');
   })
 
   test('Should create new task in current day', async () => {
@@ -80,6 +88,6 @@ describe('NEW-TASK-FORM TESTING', () => {
 
     const state: TRootState = store.getState();
     const currentDayInDays = state.day.days.find(day => day.date === state.day.currentDay);
-    expect(!!currentDayInDays?.tasks.find(task => task.text === 'test-task')).toBe(true);
+    expect(!!state.task.tasks.find(task => task.text === 'test-task')).toBe(true);
   })
 })

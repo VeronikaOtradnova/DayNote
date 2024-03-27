@@ -13,12 +13,14 @@ const testInitialState: TRootState = {
     days: [{
       date: +(new Date(2020, 0, 1)),
       color: colors.gray,
-      tasks: []
     }]
   },
   calendar: {
     isCalendarOpen: false,
     calendarDate: +(new Date(2020, 0, 1)),
+  },
+  task: {
+    tasks: []
   }
 }
 
@@ -28,12 +30,14 @@ const testInitialStateToday: TRootState = {
     days: [{
       date: +(new Date(2020, 0, 1)),
       color: colors.gray,
-      tasks: []
     }]
   },
   calendar: {
     isCalendarOpen: false,
     calendarDate: +(new Date(2020, 0, 1)),
+  },
+  task: {
+    tasks: []
   }
 }
 

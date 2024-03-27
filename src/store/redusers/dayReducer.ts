@@ -1,7 +1,6 @@
 import { getTodayMs } from "../../helpers/getTodayMs";
 import { IDayState, dayActionTypes } from "../../types/day";
 
-
 const initialState: IDayState = {
   currentDay: getTodayMs(),
   days: []

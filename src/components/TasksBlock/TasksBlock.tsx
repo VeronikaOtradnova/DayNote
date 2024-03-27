@@ -2,10 +2,13 @@ import { useCurrentDayData } from '../../hooks/useCurrentDayData';
 import styles from './TasksBlock.module.css';
 import { NewTaskForm } from './NewTaskForm/NewTaskForm';
 import { TaskItem } from './TasksList/TaskItem';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 export function TasksBlock() {
+  const {tasks} = useTypedSelector(store => store.task);
+  const {currentDay} = useTypedSelector(store => store.day)
   const currentDayData = useCurrentDayData();
-  const tasksList = currentDayData?.tasks;
+  const tasksList = tasks.filter(task => task.day === currentDay);
 
   return (
     <div className={styles.wrapper}>
@@ -16,7 +19,7 @@ export function TasksBlock() {
         
         <ul className={styles.tasksList}>
           {
-            tasksList.sort((a, b) => a.created - b.created).map(task => <TaskItem key={task.id} task={task} />)
+            tasks.filter(task => task.day === currentDay).sort((a, b) => a.created - b.created).map(task => <TaskItem key={task.id} task={task} />)
           }
         </ul>
       }

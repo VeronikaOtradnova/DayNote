@@ -7,6 +7,5 @@ export const useCurrentDayData = () => {
   return {
     color: currentDayData?.color,
     date: currentDayData?.date,
-    tasks: currentDayData?.tasks,
   };
 }

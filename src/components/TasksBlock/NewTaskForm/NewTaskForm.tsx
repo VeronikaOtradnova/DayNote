@@ -9,7 +9,7 @@ import { colors } from '../../../types/color';
 
 export function NewTaskForm() {
   const {currentDay, days} = useTypedSelector(store => store.day);
-  const {addDay, editDay} = useActions();
+  const {addDay, editDay, addTask} = useActions();
   const [inputValue, setInputValue] = useState('');
 
   const handleSubmit = (e: FormEvent) => {
@@ -21,16 +21,17 @@ export function NewTaskForm() {
       text: inputValue,
       done: false,
       created: Date.now(),
+      day: currentDay,
     }
 
     if (day) {
-      editDay({...day, tasks: [...day.tasks, newTask]});
+      addTask(newTask);
     } else {
       addDay({
         date: currentDay,
         color: colors.none,
-        tasks: [newTask]
-      })
+      });
+      addTask(newTask);
     }
     setInputValue('');
   }

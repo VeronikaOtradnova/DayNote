@@ -15,6 +15,9 @@ const testInitialState: TRootState = {
   calendar: {
     isCalendarOpen: true,
     calendarDate: +(new Date(2020, 0, 10)),
+  },
+  task: {
+    tasks: []
   }
 }
 

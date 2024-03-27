@@ -10,13 +10,13 @@ interface IProps {
 
 export function RemoveTaskBtn({taskId}: IProps) {
   const { currentDay, days } = useTypedSelector(store => store.day);
-  const {editDay} = useActions();
+  const {editDay, removeTask} = useActions();
 
   const btnHandler = () => {
     const day = days.find(d => d.date === currentDay);
     if (!day) return;
 
-    editDay({...day, tasks: day.tasks.filter(task => task.id !== taskId)})
+    removeTask(taskId);
   }
 
   return (
