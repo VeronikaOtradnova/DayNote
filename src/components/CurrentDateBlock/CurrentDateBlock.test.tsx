@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react"
-import { renderWithRedux } from "../../tests/helpers/renderWithRedux"
+import { renderWithRedux, testInitialState } from "../../tests/helpers/renderWithRedux"
 import { colors } from "../../types/color"
 import { CurrentDateBlock } from './CurrentDateBlock'
 import { TRootState } from "../../store/redusers"
@@ -7,24 +7,19 @@ import userEvent from "@testing-library/user-event"
 import { getTodayMs } from "../../helpers/getTodayMs"
 import { act } from "react-dom/test-utils"
 
-const testInitialState: TRootState = {
+const initialState: TRootState = {
+  ...testInitialState,
   day: {
     currentDay: +(new Date(2020, 0, 1)),
     days: [{
       date: +(new Date(2020, 0, 1)),
       color: colors.gray,
     }]
-  },
-  calendar: {
-    isCalendarOpen: false,
-    calendarDate: +(new Date(2020, 0, 1)),
-  },
-  task: {
-    tasks: []
   }
 }
 
-const testInitialStateToday: TRootState = {
+const initialStateToday: TRootState = {
+  ...testInitialState,
   day: {
     currentDay: getTodayMs(),
     days: [{
@@ -32,18 +27,11 @@ const testInitialStateToday: TRootState = {
       color: colors.gray,
     }]
   },
-  calendar: {
-    isCalendarOpen: false,
-    calendarDate: +(new Date(2020, 0, 1)),
-  },
-  task: {
-    tasks: []
-  }
 }
 
 describe('CURRENT-DATE-BLOCK TESTING', () => {
   test('Render current date', () => {
-    renderWithRedux(<CurrentDateBlock />, { initialState: testInitialState });
+    renderWithRedux(<CurrentDateBlock />, { initialState: initialState });
 
     const dateBlock = screen.getByTestId('date-block');
     expect(dateBlock).toBeInTheDocument();
@@ -54,7 +42,7 @@ describe('CURRENT-DATE-BLOCK TESTING', () => {
 
   test('Prev-date btn', async () => {
     const user = userEvent.setup();
-    renderWithRedux(<CurrentDateBlock />, { initialState: testInitialState });
+    renderWithRedux(<CurrentDateBlock />, { initialState: initialState });
 
     const prevBtn = screen.getByTestId<HTMLButtonElement>('prev-btn');
     expect(prevBtn).toBeInTheDocument();
@@ -68,7 +56,7 @@ describe('CURRENT-DATE-BLOCK TESTING', () => {
 
   test('Next-date btn', async () => {
     const user = userEvent.setup();
-    renderWithRedux(<CurrentDateBlock />, { initialState: testInitialState });
+    renderWithRedux(<CurrentDateBlock />, { initialState: initialState });
 
     const nextBtn = screen.getByTestId<HTMLButtonElement>('next-btn');
     expect(nextBtn).toBeInTheDocument();
@@ -82,7 +70,7 @@ describe('CURRENT-DATE-BLOCK TESTING', () => {
 
   test('Disabled next-date btn', async () => {
     const user = userEvent.setup();
-    const {store} = renderWithRedux(<CurrentDateBlock />, { initialState: testInitialStateToday });
+    const {store} = renderWithRedux(<CurrentDateBlock />, { initialState: initialStateToday });
     const firstState:TRootState = store.getState();
 
     expect(screen.queryByTestId('next-btn')).not.toBeInTheDocument();
@@ -99,7 +87,7 @@ describe('CURRENT-DATE-BLOCK TESTING', () => {
 
   test('Should change state.calendar.icCalendarOpen to true after click on date-elem', async () => {
     const user = userEvent.setup();
-    const {store} = renderWithRedux(<CurrentDateBlock />, { initialState: testInitialState });
+    const {store} = renderWithRedux(<CurrentDateBlock />, { initialState: initialState });
 
     const dateElem = screen.getByTestId('date-elem');
     

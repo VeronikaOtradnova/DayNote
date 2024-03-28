@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { TRootState } from "../../store/redusers"
-import { renderWithRedux } from "../../tests/helpers/renderWithRedux";
+import { renderWithRedux, testInitialState } from "../../tests/helpers/renderWithRedux";
 import { CalendarMonthBlock } from "./CalendarMonthBlock";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-const testInitialState: TRootState = {
+const initialState: TRootState = {
+  ...testInitialState,
   day: {
     currentDay: +(new Date(2020, 11, 1)),
     days: []
@@ -14,9 +15,6 @@ const testInitialState: TRootState = {
     isCalendarOpen: true,
     calendarDate: +(new Date(2020, 11, 1)),
   },
-  task: {
-    tasks: []
-  }
 }
 
 interface IParentProps {
@@ -35,7 +33,7 @@ const MonthBlockInParent = ({startMonth, startYear}: IParentProps) => {
 
 describe('TEST MONTH-BLOCK', () => {
   test('Should render current month', () => {
-    renderWithRedux(<MonthBlockInParent startMonth={0} startYear={2021} />, { initialState: testInitialState });
+    renderWithRedux(<MonthBlockInParent startMonth={0} startYear={2021} />, { initialState: initialState });
 
     expect(screen.getByTestId('month-block__text')).toBeInTheDocument();
     expect(screen.getByTestId('month-block__text')).toHaveTextContent('Январь');
@@ -43,7 +41,7 @@ describe('TEST MONTH-BLOCK', () => {
 
   test('Should render prev month aftex click on prev-btn', async () => {
     const user = userEvent.setup();
-    renderWithRedux(<MonthBlockInParent startMonth={0} startYear={2021} />, { initialState: testInitialState });
+    renderWithRedux(<MonthBlockInParent startMonth={0} startYear={2021} />, { initialState: initialState });
 
     const prevBtn = screen.getByTestId('prev-month-btn');
     expect(prevBtn).toBeInTheDocument();
@@ -54,7 +52,7 @@ describe('TEST MONTH-BLOCK', () => {
 
   test('Should render next month aftex click on next-btn', async () => {
     const user = userEvent.setup();
-    renderWithRedux(<MonthBlockInParent startMonth={0} startYear={2021} />, { initialState: testInitialState });
+    renderWithRedux(<MonthBlockInParent startMonth={0} startYear={2021} />, { initialState: initialState });
 
     const nextBtn = screen.getByTestId('next-month-btn');
     expect(nextBtn).toBeInTheDocument();
@@ -65,7 +63,7 @@ describe('TEST MONTH-BLOCK', () => {
 
   test('Should render disabled next-btn when currentMonth === calendarMonth', async () => {
     const user = userEvent.setup();
-    renderWithRedux(<MonthBlockInParent startMonth={11} startYear={2020} />, { initialState: testInitialState });
+    renderWithRedux(<MonthBlockInParent startMonth={11} startYear={2020} />, { initialState: initialState });
     
     expect(screen.queryByTestId('next-month-btn')).not.toBeInTheDocument();
     expect(screen.getByTestId('next-month-btn_disabled')).toBeInTheDocument();

@@ -4,7 +4,7 @@ import { TRootState, rootReducer } from "../../store/redusers";
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 
-const testInitialState: TRootState = {
+export const testInitialState: TRootState = {
   day: {
     currentDay: +(new Date(2020, 0, 1)),
     days: [],
@@ -15,6 +15,9 @@ const testInitialState: TRootState = {
   },
   task: {
     tasks: []
+  },
+  event: {
+    events: []
   }
 }
 

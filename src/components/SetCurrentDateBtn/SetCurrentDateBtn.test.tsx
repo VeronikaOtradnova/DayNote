@@ -1,27 +1,21 @@
 import userEvent from "@testing-library/user-event";
 import { TRootState } from "../../store/redusers";
-import { renderWithRedux } from "../../tests/helpers/renderWithRedux";
+import { renderWithRedux, testInitialState } from "../../tests/helpers/renderWithRedux";
 import {SetCurrentDateBtn} from './SetCurrentDateBtn';
 import { screen } from "@testing-library/react";
 import { act } from "react-dom/test-utils";
 
-const testInitialState: TRootState = {
-  day: {
-    currentDay: +(new Date(2020, 0, 1)),
-    days: []
-  },
+const initialState: TRootState = {
+  ...testInitialState,
   calendar: {
     isCalendarOpen: true,
     calendarDate: +(new Date(2020, 0, 10)),
   },
-  task: {
-    tasks: []
-  }
 }
 
 describe('TEST SET-DATE-BTN', () => {
   test('Should render btn', () => {
-    renderWithRedux(<SetCurrentDateBtn />, { initialState: testInitialState });
+    renderWithRedux(<SetCurrentDateBtn />, { initialState: initialState });
 
     expect(screen.getByTestId('set-date-btn')).toBeInTheDocument();
   })

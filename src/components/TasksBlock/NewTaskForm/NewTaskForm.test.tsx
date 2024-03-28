@@ -1,36 +1,33 @@
 import { screen } from "@testing-library/react";
-import { renderWithRedux } from "../../../tests/helpers/renderWithRedux"
+import { renderWithRedux, testInitialState } from "../../../tests/helpers/renderWithRedux"
 import { NewTaskForm } from "./NewTaskForm"
 import { TRootState } from "../../../store/redusers";
 import userEvent from "@testing-library/user-event";
 import { colors } from "../../../types/color";
 import { act } from "react-dom/test-utils";
 
-const newDayInitialState: TRootState = {
-  day: {
-    currentDay: +(new Date(2020, 0, 1)),
-    days: []
-  },
-  calendar: {
-    isCalendarOpen: false,
-    calendarDate: +(new Date(2020, 0, 1)),
-  },
-  task: {
-    tasks: []
-  }
-}
+// const newDayInitialState: TRootState = {
+//   day: {
+//     currentDay: +(new Date(2020, 0, 1)),
+//     days: []
+//   },
+//   calendar: {
+//     isCalendarOpen: false,
+//     calendarDate: +(new Date(2020, 0, 1)),
+//   },
+//   task: {
+//     tasks: []
+//   }
+// }
 
 const existingDayInitialState: TRootState = {
+  ...testInitialState,
   day: {
     currentDay: +(new Date(2020, 0, 1)),
     days: [{
       date: +(new Date(2020, 0, 1)),
       color: colors.gray,
     }]
-  },
-  calendar: {
-    isCalendarOpen: false,
-    calendarDate: +(new Date(2020, 0, 1)),
   },
   task: {
     tasks: [
@@ -58,7 +55,7 @@ describe('NEW-TASK-FORM TESTING', () => {
 
   test('Should create new day with new task when currentDay is not in days', async () => {
     const user = userEvent.setup();
-    const { store } = renderWithRedux(<NewTaskForm />, { initialState: newDayInitialState });
+    const { store } = renderWithRedux(<NewTaskForm />);
 
     const input = screen.getByTestId('new-task-input');
     const btn = screen.getByTestId('create-task-btn');

@@ -1,13 +1,14 @@
 import { screen } from "@testing-library/react";
 import { TRootState } from "../../store/redusers";
-import { renderWithRedux } from "../../tests/helpers/renderWithRedux";
+import { renderWithRedux, testInitialState } from "../../tests/helpers/renderWithRedux";
 import { DayInCalendar } from "./DayInCalendar";
 import userEvent from "@testing-library/user-event";
 import { getTodayMs } from "../../helpers/getTodayMs";
 import { getDayMs } from "../../helpers/getDayMs";
 import { act } from "react-dom/test-utils";
 
-const testInitialState: TRootState = {
+const initialState: TRootState = {
+  ...testInitialState,
   day: {
     currentDay: +(new Date(2020, 0, 10)),
     days: []
@@ -16,14 +17,11 @@ const testInitialState: TRootState = {
     isCalendarOpen: true,
     calendarDate: +(new Date(2020, 0, 10)),
   },
-  task: {
-    tasks: []
-  }
 }
 
 describe('TEST DAY IN CALENDAR', () => {
   test('Should render not selected day', () => {
-    renderWithRedux(<DayInCalendar date={new Date(2020, 0, 1)} />, { initialState: testInitialState });
+    renderWithRedux(<DayInCalendar date={new Date(2020, 0, 1)} />, { initialState: initialState });
 
     const dayElem = screen.getByTestId('day-in-calendar');
     expect(dayElem).toBeInTheDocument();

@@ -1,21 +1,43 @@
 import userEvent from "@testing-library/user-event"
 import { TRootState } from "../../../store/redusers"
-import { renderWithRedux } from "../../../tests/helpers/renderWithRedux"
+import { renderWithRedux, testInitialState } from "../../../tests/helpers/renderWithRedux"
 import { colors } from "../../../types/color"
 import { TaskItem } from "../TasksList/TaskItem"
 import { screen } from "@testing-library/react"
 
+// const initialState: TRootState = {
+//   day: {
+//     currentDay: +(new Date(2020, 0, 1)),
+//     days: [{
+//       date: +(new Date(2020, 0, 1)),
+//       color: colors.gray,
+//     }]
+//   },
+//   calendar: {
+//     isCalendarOpen: false,
+//     calendarDate: +(new Date(2020, 0, 1)),
+//   },
+//   task: {
+//     tasks: [
+//       {
+//         created: +(new Date(2020, 0, 1)),
+//         done: false,
+//         id: 'testid0',
+//         text: 'test task 0',
+//         day: +(new Date(2020, 0, 1))
+//       }
+//     ]
+//   }
+// }
+
 const initialState: TRootState = {
+  ...testInitialState,
   day: {
     currentDay: +(new Date(2020, 0, 1)),
     days: [{
       date: +(new Date(2020, 0, 1)),
       color: colors.gray,
     }]
-  },
-  calendar: {
-    isCalendarOpen: false,
-    calendarDate: +(new Date(2020, 0, 1)),
   },
   task: {
     tasks: [

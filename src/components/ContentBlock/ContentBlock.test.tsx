@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { renderWithRedux } from "../../tests/helpers/renderWithRedux";
+import { renderWithRedux, testInitialState } from "../../tests/helpers/renderWithRedux";
 import { ContentBlock } from "./ContentBlock";
 import { TRootState } from "../../store/redusers";
 import { colors } from "../../types/color";
@@ -7,19 +7,13 @@ import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
 
 const stateWithCurrentColor: TRootState = {
+  ...testInitialState,
   day: {
     currentDay: +(new Date(2020, 0, 1)),
     days: [{
       date: +(new Date(2020, 0, 1)),
       color: colors.green,
     }],
-  },
-  calendar: {
-    isCalendarOpen: false,
-    calendarDate: +(new Date(2020, 0, 1)),
-  },
-  task: {
-    tasks: []
   }
 }
 
