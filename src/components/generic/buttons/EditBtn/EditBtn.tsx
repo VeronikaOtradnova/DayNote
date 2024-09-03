@@ -10,11 +10,7 @@ export function EditBtn({onClick, testId = ''}: IProps) {
     <button
       className={styles.btn}
       onClick={onClick}
-<<<<<<< HEAD
       data-testid={testId}
-=======
-      data-testId={testId}
->>>>>>> d0cafea301ee2479e2cde0d44dc0be390630589c
     />
   )
 }
