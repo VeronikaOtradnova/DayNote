@@ -1,4 +1,4 @@
-import { IAddTaskAction, IEditTaskAction, IRemoveTaskAction, ITask, taskActionTypes } from "../../types/task"
+import { IAddTaskAction, IEditTaskAction, IRemoveTasksAction, ITask, taskActionTypes } from "../../types/task"
 
 export const addTask = (task: ITask):IAddTaskAction => {
   return {
@@ -14,9 +14,9 @@ export const editTask = (task: ITask):IEditTaskAction => {
   }
 }
 
-export const removeTask = (id: string):IRemoveTaskAction => {
+export const removeTasks = (ids: string[]):IRemoveTasksAction => {
   return {
-    type: taskActionTypes.REMOVE_TASK,
-    payload: id,
+    type: taskActionTypes.REMOVE_TASKS,
+    payload: ids,
   }
 }

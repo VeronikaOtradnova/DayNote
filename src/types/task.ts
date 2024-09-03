@@ -3,12 +3,13 @@ export interface ITask {
   id: string,
   text: string,
   done: boolean,
-  created: number
+  created: number,
+  selected: boolean,
 }
 
 export enum taskActionTypes {
   ADD_TASK = 'ADD_TASK',
-  REMOVE_TASK = 'REMOVE_TASK',
+  REMOVE_TASKS = 'REMOVE_TASK',
   EDIT_TASK = 'EDIT_TASK',
 }
 
@@ -17,9 +18,9 @@ export interface IAddTaskAction {
   payload: ITask,
 }
 
-export interface IRemoveTaskAction {
-  type: taskActionTypes.REMOVE_TASK,
-  payload: string,
+export interface IRemoveTasksAction {
+  type: taskActionTypes.REMOVE_TASKS,
+  payload: string[],
 }
 
 export interface IEditTaskAction {
@@ -27,7 +28,7 @@ export interface IEditTaskAction {
   payload: ITask,
 }
 
-export type TTaskAction = IAddTaskAction | IRemoveTaskAction | IEditTaskAction;
+export type TTaskAction = IAddTaskAction | IRemoveTasksAction | IEditTaskAction;
 
 export interface ITaskState {
   tasks: ITask[],

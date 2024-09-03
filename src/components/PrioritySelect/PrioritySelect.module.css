@@ -1,0 +1,91 @@
+.wrapper {
+  position: relative;
+  min-width: 200px;
+}
+
+.currentValue {
+  position: relative;
+  height: 41px;
+  padding: 5px 10px;
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  color: var(--text-color);
+  font-size: 2rem;
+  background-color: #fff;
+  background-size: 15px 15px;
+  background-position: right 10px bottom 50%;;
+  background-repeat: no-repeat;
+  background-image: url('/src/icons/chevron-light-down.svg');
+  z-index: 10;
+}
+.currentValue:hover {
+  cursor: pointer;
+  background-color: #f2f1f3;
+}
+.currentValueOpen {
+  background-image: url('/src/icons/chevron-light.svg');
+  font-weight: 500;
+}
+
+.dropdown {
+  position: absolute;
+  top: 34px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding-top: 7px;
+  border: 1px solid var(--light-gray);
+  border-radius: 5px;
+  border-top: none;
+}
+
+.dropdownItem {
+  height: 41px;
+  padding: 5px 10px;
+  color: var(--gray);
+  font-size: 2rem;
+  background-color: #fff;
+}
+.dropdownItem:hover {
+  cursor: pointer;
+  background-color: #f2f1f3;
+}
+.dropdownItem:not(:last-child) {
+  border-bottom: 1px solid var(--extralight-gray);
+}
+.dropdownItem:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.extraHighPriority {
+  color: var(--extra-high-priority-text);
+}
+.highPriority {
+  color: var(--high-priority-text);
+}
+.mediumPriority {
+  color: var(--medium-priority-text);
+}
+.lowPriority {
+  color: var(--low-priority-text);
+}
+
+@media (min-width: 1000px) {
+  .currentValue {
+    height: 35px;
+    font-size: 2rem;
+  }
+
+  .dropdown {
+    top: 28px;
+  }
+
+  .dropdownItem {
+    height: 35px;
+    font-size: 2rem;
+  }
+}

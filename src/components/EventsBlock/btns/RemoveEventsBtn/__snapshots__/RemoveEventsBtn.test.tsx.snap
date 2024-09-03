@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`REMOVE-EVENTS-BTN TESTING Should render btn when more than zero events are selected 1`] = `
+<button
+  class="btn"
+  data-testid="remove-events-btn"
+/>
+`;

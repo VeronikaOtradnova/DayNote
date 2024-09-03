@@ -7,6 +7,7 @@
   min-height: 80vh;
   width: 100%;
   padding: 40px;
+  padding-bottom: 70px;
   border-radius: 13px;
   background-color: #fff;
 }
@@ -23,5 +24,6 @@
     flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: stretch;
+    padding-bottom: 50px;
   }
 }

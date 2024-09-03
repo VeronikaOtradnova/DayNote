@@ -1,18 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TEST DAY IN CALENDAR Should not set calendarDate after click on future-day 1`] = `
-<td
-  class="cell"
-  data-testid="day-in-calendar_future"
->
-  <div
-    class="contentWrapper"
-  >
-    28
-  </div>
-</td>
-`;
-
 exports[`TEST DAY IN CALENDAR Should render not selected day 1`] = `
 <td
   class="cell"
@@ -36,7 +23,7 @@ exports[`TEST DAY IN CALENDAR Should set calendarDate after click 1`] = `
   data-testid="day-in-calendar"
 >
   <div
-    class="contentWrapper"
+    class="contentWrapper selected gray"
   >
     <span
       class="number gray"
