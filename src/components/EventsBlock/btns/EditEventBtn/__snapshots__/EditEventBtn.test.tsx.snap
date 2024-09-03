@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EDIT-EVENT-BTN-TESTING Should render btn when one event is selected 1`] = `
+<button
+  class="btn"
+  data-testid="edit-event-btn"
+/>
+`;

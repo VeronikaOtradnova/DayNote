@@ -1,4 +1,4 @@
-import { IAddEventAction, IEditEventAction, IEvent, IRemoveEventAction, eventActionTypes } from "../../types/event";
+import { IAddEventAction, IEditEventAction, IEvent, IRemoveEventsAction, eventActionTypes } from "../../types/event";
 
 export const addEvent = (event: IEvent):IAddEventAction => ({
   type: eventActionTypes.ADD_EVENT,
@@ -10,7 +10,7 @@ export const editEvent = (event: IEvent):IEditEventAction => ({
   payload: event
 })
 
-export const removeEvent = (id: string):IRemoveEventAction => ({
-  type: eventActionTypes.REMOVE_EVENT,
-  payload: id
+export const removeEvents = (ids: string[]):IRemoveEventsAction => ({
+  type: eventActionTypes.REMOVE_EVENTS,
+  payload: ids
 })

@@ -1,9 +1,20 @@
 .editor {
   position: absolute;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  bottom: 40px;
+  bottom: 20px;
   right: 40px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.6);
+}
+
+@media (min-width: 1000px) {
+  .editor {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+  }
 }

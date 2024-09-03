@@ -1,7 +1,7 @@
 .item {
   height: 30px;
   width: 30px;
-  margin-bottom: 35px;
+  margin-right: 15px;
   border-radius: 50%;
   border: 1px solid var(--gray);
 }
@@ -12,8 +12,11 @@
 .green {
   background-color: var(--green);
 }
-.yellow {
-  background-color: var(--yellow);
+.pink {
+  background-color: var(--pink);
+}
+.blue {
+  background-color: var(--blue);
 }
 .gray {
   background-color: var(--gray);

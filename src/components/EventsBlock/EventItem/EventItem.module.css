@@ -1,0 +1,68 @@
+.item {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  /* padding: 15px; */
+  border-bottom: 1px solid var(--light-gray);
+  font-size: 2.3rem;
+  color: var(--gray);
+}
+
+.itemPast {
+  opacity: 0.6;
+}
+
+.header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px;
+}
+.header:hover {
+  cursor: pointer;
+}
+
+.title {
+  margin-left: 10px;
+}
+
+.title.extraHighPriority {
+  color: var(--extra-high-priority-text);
+}
+.title.highPriority {
+  color: var(--high-priority-text);
+}
+.title.mediumPriority {
+  color: var(--medium-priority-text);
+}
+.title.lowPriority {
+  color: var(--low-priority-text);
+}
+
+.body {
+  background-color: #f2f1f3;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+.bodyOpen {
+  max-height: 500px; /* Предполагаемая максимальная высота */
+}
+
+.bodyContent {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 15px;
+}
+
+.controlsWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 10px;
+}

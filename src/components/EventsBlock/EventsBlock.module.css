@@ -1,0 +1,30 @@
+.list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media (min-width: 1000px) {
+  .wrapper {
+    width: 60%;
+    padding-left: 15px;
+  }
+
+  .list {
+    max-height: 350px;
+    padding-right: 10px;
+    overflow: auto;
+  }
+}

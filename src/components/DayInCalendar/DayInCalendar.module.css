@@ -21,8 +21,11 @@
 .selected.green {
   border-color: var(--green);
 }
-.selected.yellow {
-  border-color: var(--yellow);
+.selected.pink {
+  border-color: var(--pink);
+}
+.selected.blue {
+  border-color: var(--blue);
 }
 .selected.gray {
   border-color: var(--gray);
@@ -34,8 +37,11 @@
 .number.green {
   border-color: var(--green);
 }
-.number.yellow {
-  border-color: var(--yellow);
+.number.pink {
+  border-color: var(--pink);
+}
+.number.blue {
+  border-color: var(--blue);
 }
 
 @media (min-width: 500px) {

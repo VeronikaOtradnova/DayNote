@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`REMOVE-TASKS-BTN TESTING Should render btn when more than zero tasks are selected 1`] = `
+<button
+  class="btn"
+  data-testid="remove-tasks-btn"
+/>
+`;

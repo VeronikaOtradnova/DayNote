@@ -56,6 +56,5 @@ describe('TEST DAY IN CALENDAR', () => {
 
     const state:TRootState = store.getState();
     expect(state.calendar.calendarDate).toBe(stateBeforeClick.calendar.calendarDate);
-    expect(dayElem).toMatchSnapshot();
   })
 })

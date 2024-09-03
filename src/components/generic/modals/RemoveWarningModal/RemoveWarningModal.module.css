@@ -1,0 +1,61 @@
+.header {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+}
+
+.redLine {
+  height: 10px;
+  margin: 10px 0;
+  background-color: var(--red);
+}
+
+.text {
+  width: 80%;
+  margin: 10px auto;
+  color: #000;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+.btnsWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.btn {
+  padding: 10px 15px;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.2s ease-in-out;
+}
+.btn:hover {
+  cursor: pointer;
+}
+
+.cancelBtn {
+  background-color: var(--extralight-gray);
+  color: #000;
+  margin-right: 20px;
+}
+.cancelBtn:hover {
+  background-color: var(--light-gray);
+}
+
+.removeBtn {
+  background-color: var(--red);
+}
+.removeBtn:hover {
+  background-color: #990000;
+}

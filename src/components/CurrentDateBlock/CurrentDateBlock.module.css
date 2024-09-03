@@ -64,8 +64,11 @@
 .green {
   background-color: var(--light-green);
 }
-.yellow {
-  background-color: var(--light-yellow);
+.pink {
+  background-color: var(--light-pink);
+}
+.blue {
+  background-color: var(--light-blue);
 }
 .gray {
   background-color: var(--extralight-gray);

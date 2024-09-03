@@ -3,6 +3,7 @@ import { getTodayMs } from '../../helpers/getTodayMs';
 import { useActions } from '../../hooks/useActions';
 import { useCurrentDayData } from '../../hooks/useCurrentDayData';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { colors } from '../../types/color';
 import styles from './CurrentDateBlock.module.css';
 
 export const CurrentDateBlock = () => {
@@ -70,7 +71,7 @@ export const CurrentDateBlock = () => {
         data-testid="prev-btn" 
       />
 
-      <div className={`${styles.date} ${color ? styles[color] : styles.noColor}`} onClick={() => openCalendar()} data-testid="date-elem">
+      <div className={`${styles.date} ${!color || color === colors.none ? styles.noColor : styles[color]}`} onClick={() => openCalendar()} data-testid="date-elem">
         <div className={styles.calendarIcon} />
         <div className={styles.dateText}>{`${day} ${month}`}</div>
       </div>
@@ -78,13 +79,13 @@ export const CurrentDateBlock = () => {
         currentDay === getTodayMs() ?
         <button 
           disabled 
-          className={`${styles.btn} ${styles.nextDateBtn} ${color ? styles[color] : styles.noColor} disabled-btn`} 
+          className={`${styles.btn} ${styles.nextDateBtn} ${!color || color === colors.none ? styles.noColor : styles[color]} disabled-btn`} 
           data-testid="disabled-next-btn" 
         /> 
         :
         <button 
           onClick={nextBtnHandler} 
-          className={`${styles.btn} ${styles.nextDateBtn} ${color ? styles[color] : styles.noColor}`} 
+          className={`${styles.btn} ${styles.nextDateBtn} ${!color || color === colors.none ? styles.noColor : styles[color]}`} 
           data-testid="next-btn" 
         />
       }

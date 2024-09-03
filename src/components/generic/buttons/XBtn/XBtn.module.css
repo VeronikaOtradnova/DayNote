@@ -1,0 +1,17 @@
+.btn {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  background-size: 80% 80%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-image: url('/src/icons/x-lg.svg');
+  transition: background-image 0.2s ease-in-out;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-image: url('/src/icons/x-lg-grey.svg');
+}
