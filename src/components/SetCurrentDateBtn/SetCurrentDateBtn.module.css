@@ -8,4 +8,9 @@
   border: none;
   outline: none;
   border-radius: 17px;
+  transition: background-color 0.2s ease-in-out;
+}
+.btn:hover {
+  cursor: pointer;
+  background-color: #586f5f;
 }

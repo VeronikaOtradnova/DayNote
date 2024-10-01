@@ -75,20 +75,12 @@ export const CurrentDateBlock = () => {
         <div className={styles.calendarIcon} />
         <div className={styles.dateText}>{`${day} ${month}`}</div>
       </div>
-      {
-        currentDay === getTodayMs() ?
-        <button 
-          disabled 
-          className={`${styles.btn} ${styles.nextDateBtn} ${!color || color === colors.none ? styles.noColor : styles[color]} disabled-btn`} 
-          data-testid="disabled-next-btn" 
-        /> 
-        :
+
         <button 
           onClick={nextBtnHandler} 
           className={`${styles.btn} ${styles.nextDateBtn} ${!color || color === colors.none ? styles.noColor : styles[color]}`} 
           data-testid="next-btn" 
         />
-      }
     </div>
   )
 }

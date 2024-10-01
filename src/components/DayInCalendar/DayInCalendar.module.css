@@ -2,6 +2,9 @@
   padding: 10px 0;
   color: #3B3D49;
 }
+.cell:hover {
+  cursor: pointer;
+}
 .cell.weekend {
   color: #AE1314;
 }
@@ -32,7 +35,7 @@
 }
 
 .number {
-  border-bottom: 3px solid var(--gray);
+  border-bottom: 3px solid transparent;
 }
 .number.green {
   border-color: var(--green);
@@ -42,6 +45,10 @@
 }
 .number.blue {
   border-color: var(--blue);
+}
+
+.today {
+  background-color: var(--light-gray);
 }
 
 @media (min-width: 500px) {

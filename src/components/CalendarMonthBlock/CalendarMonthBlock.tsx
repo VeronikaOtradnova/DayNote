@@ -77,12 +77,7 @@ export const CalendarMonthBlock = ({ month, setMonth, year, setYear }: IProps) =
 
       <div className={styles.monthText} data-testid="month-block__text">{monthName}</div>
 
-      {
-        currentMonth === month ?
-        <button disabled className={`${styles.btn} ${styles.nextBtn} disabled-btn`} data-testid="next-month-btn_disabled" /> 
-        :
-        <button onClick={nextMonthHandler} className={`${styles.btn} ${styles.nextBtn}`} data-testid="next-month-btn" />
-      }
+      <button onClick={nextMonthHandler} className={`${styles.btn} ${styles.nextBtn}`} data-testid="next-month-btn" />
     </div>
   )
 }
