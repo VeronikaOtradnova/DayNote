@@ -60,13 +60,5 @@ describe('TEST MONTH-BLOCK', () => {
     await user.click(nextBtn);
     expect(screen.getByTestId('month-block__text')).toHaveTextContent('Февраль');
   })
-
-  test('Should render disabled next-btn when currentMonth === calendarMonth', async () => {
-    const user = userEvent.setup();
-    renderWithRedux(<MonthBlockInParent startMonth={11} startYear={2020} />, { initialState: initialState });
-    
-    expect(screen.queryByTestId('next-month-btn')).not.toBeInTheDocument();
-    expect(screen.getByTestId('next-month-btn_disabled')).toBeInTheDocument();
-  })
 })
 

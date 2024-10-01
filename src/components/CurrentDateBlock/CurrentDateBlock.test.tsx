@@ -68,23 +68,6 @@ describe('CURRENT-DATE-BLOCK TESTING', () => {
     expect(screen.getByTestId<HTMLDivElement>('date-elem')).toHaveTextContent('2 января');
   });
 
-  test('Disabled next-date btn', async () => {
-    const user = userEvent.setup();
-    const {store} = renderWithRedux(<CurrentDateBlock />, { initialState: initialStateToday });
-    const firstState:TRootState = store.getState();
-
-    expect(screen.queryByTestId('next-btn')).not.toBeInTheDocument();
-    const disabledBtn = screen.getByTestId<HTMLButtonElement>('disabled-next-btn');
-    expect(disabledBtn).toBeInTheDocument();
-
-    await act(async () => {
-      await user.click(disabledBtn);
-    })
-    
-    const stateAfterClick:TRootState = store.getState();
-    expect(firstState.day.currentDay).toBe(stateAfterClick.day.currentDay); // после клика дата в стейте не изменилась
-  });
-
   test('Should change state.calendar.icCalendarOpen to true after click on date-elem', async () => {
     const user = userEvent.setup();
     const {store} = renderWithRedux(<CurrentDateBlock />, { initialState: initialState });

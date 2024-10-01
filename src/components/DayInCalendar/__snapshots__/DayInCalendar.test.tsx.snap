@@ -6,7 +6,7 @@ exports[`TEST DAY IN CALENDAR Should render not selected day 1`] = `
   data-testid="day-in-calendar"
 >
   <div
-    class="contentWrapper"
+    class="contentWrapper  "
   >
     <span
       class="number gray"
@@ -23,7 +23,7 @@ exports[`TEST DAY IN CALENDAR Should set calendarDate after click 1`] = `
   data-testid="day-in-calendar"
 >
   <div
-    class="contentWrapper selected gray"
+    class="contentWrapper selected gray "
   >
     <span
       class="number gray"

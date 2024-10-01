@@ -8,6 +8,7 @@ import { PlusBtn } from '../generic/buttons/PlusBtn/PlusBtn';
 import { RemoveTasksBtn } from './btns/RemoveTasksBtn/RemoveTasksBtn';
 import { EditTaskBtn } from './btns/EditTaskBtn/EditTaskBtn';
 import { XBtn } from '../generic/buttons/XBtn/XBtn';
+import { XSquareBtn } from '../generic/buttons/XSquareBtn/XSquareBtn';
 
 export function TasksBlock() {
   const { tasks } = useTypedSelector(store => store.task);
@@ -32,15 +33,16 @@ export function TasksBlock() {
 
         {
           isForm ?
-            <XBtn
+            <XSquareBtn 
               onClick={() => setIsForm(false)}
               testId='tasks-block__hide-form-btn'
-              bgSize={20}
+              bgSize={30}
             />
             :
             <PlusBtn
               onClick={() => setIsForm(!isForm)}
               testId='tasks-block__show-form-btn'
+              bgSize={30}
             />
         }
       </div>

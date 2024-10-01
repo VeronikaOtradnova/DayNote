@@ -8,6 +8,7 @@ import { EventItem } from './EventItem/EventItem';
 import { IEvent } from '../../types/event';
 import { EditEventBtn } from './btns/EditEventBtn/EditEventBtn';
 import { RemoveEventsBtn } from './btns/RemoveEventsBtn/RemoveEventsBtn';
+import { XSquareBtn } from '../generic/buttons/XSquareBtn/XSquareBtn';
 
 export function EventsBlock() {
   const {events} = useTypedSelector(store => store.event);
@@ -34,15 +35,16 @@ export function EventsBlock() {
 
           {
             isFormOpen ?
-            <XBtn 
+            <XSquareBtn 
               onClick={() => setFormOpen(false)}
               testId='events-block__hide-form-btn'
-              bgSize={20}
+              bgSize={30}
             />
             :
             <PlusBtn
               onClick={() => setFormOpen(true)}
               testId='events-block__show-form-btn'
+              bgSize={30}
             />
           }
         </div>
