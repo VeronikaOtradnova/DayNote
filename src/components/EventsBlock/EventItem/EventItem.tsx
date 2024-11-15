@@ -13,7 +13,6 @@ interface IProps {
 export function EventItem({event}: IProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [titleWidth, setTitleWidth] = useState('');
-  // const [descriptionWidth, setDescriptionWidth] = useState('');
 
   const {currentDay} = useTypedSelector(store => store.day);
   const {width, isScreenM, isScreenS} = useResize();
@@ -26,14 +25,6 @@ export function EventItem({event}: IProps) {
     } else if (isScreenS) {
       setTitleWidth(`${width - 190}px`)
     }
-
-    // //нужно вычислить ширину описания, чтобы к нему применилось свойство overflow-wrap: break-word;
-    // if (isScreenM) {
-    //   const eventsBlockWidth = ((width - 80)/100)*60;
-    //   setTitleWidth(`${eventsBlockWidth - 135}px`);
-    // } else if (isScreenS) {
-    //   setTitleWidth(`${width - 190}px`)
-    // }
   }, [isScreenS])
 
   const getPriorityClassName = (initClassName: string, priority: eventPriorities) => {
