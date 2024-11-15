@@ -23,7 +23,9 @@
 }
 
 .text {
+  margin: 0 5px;
   font-size: 23px;
+  overflow-wrap: break-word;
 }
 
 @media (min-width: 1000px) {

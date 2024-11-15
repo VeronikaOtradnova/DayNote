@@ -4,6 +4,7 @@ import { IEvent, eventPriorities } from '../../../types/event';
 import styles from './EventItem.module.css';
 import { formatTime } from '../../../helpers/formatTime';
 import { SelectEventCheckbox } from '../checkbox/SelectEventCheckbox/SelectEventCheckbox';
+import { useResize } from '../../../hooks/useResize';
 
 interface IProps {
   event: IEvent
@@ -11,7 +12,29 @@ interface IProps {
 
 export function EventItem({event}: IProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [titleWidth, setTitleWidth] = useState('');
+  // const [descriptionWidth, setDescriptionWidth] = useState('');
+
   const {currentDay} = useTypedSelector(store => store.day);
+  const {width, isScreenM, isScreenS} = useResize();
+
+  useEffect(() => {
+    //нужно вычислить ширину заголовка, чтобы к нему применилось свойство overflow-wrap: break-word;
+    if (isScreenM) {
+      const eventsBlockWidth = ((width - 80)/100)*60;
+      setTitleWidth(`${eventsBlockWidth - 135}px`);
+    } else if (isScreenS) {
+      setTitleWidth(`${width - 190}px`)
+    }
+
+    // //нужно вычислить ширину описания, чтобы к нему применилось свойство overflow-wrap: break-word;
+    // if (isScreenM) {
+    //   const eventsBlockWidth = ((width - 80)/100)*60;
+    //   setTitleWidth(`${eventsBlockWidth - 135}px`);
+    // } else if (isScreenS) {
+    //   setTitleWidth(`${width - 190}px`)
+    // }
+  }, [isScreenS])
 
   const getPriorityClassName = (initClassName: string, priority: eventPriorities) => {
     let className = initClassName;
@@ -39,7 +62,12 @@ export function EventItem({event}: IProps) {
       <div className={styles.header} onClick={() => setIsOpen(!isOpen)}>
         <SelectEventCheckbox event={event} />
         <div className={styles.time}>{formatTime(event.time)}</div>
-        <div className={getPriorityClassName(styles.title, event.priority)}>{event.title}</div>
+        <div 
+          className={getPriorityClassName(styles.title, event.priority)}
+          style={{width: titleWidth}}
+        >
+          {event.title}
+        </div>
       </div>
 
       <div className={`${styles.body} ${isOpen ? styles.bodyOpen : ''}`}>

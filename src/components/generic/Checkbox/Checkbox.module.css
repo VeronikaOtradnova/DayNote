@@ -28,7 +28,7 @@
 }
 .checkbox.circle+label::before {
   border-radius: 50%;
-  margin-right: 0.5em;
+  margin-right: 5px;
 }
 
 .checkbox:checked+label::before {

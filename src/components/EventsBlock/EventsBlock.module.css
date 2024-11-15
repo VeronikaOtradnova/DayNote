@@ -23,7 +23,6 @@
   }
 
   .list {
-    max-height: 350px;
     padding-right: 10px;
     overflow: auto;
   }
